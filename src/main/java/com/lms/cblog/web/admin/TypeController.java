@@ -40,7 +40,7 @@ public class TypeController {
     public String input(Model model){
 
         model.addAttribute("type",new Type());
-        return "admin/addBlog";
+        return "admin/addType";
     }
 
     @GetMapping("/types/{id}/input")    //编辑分类
