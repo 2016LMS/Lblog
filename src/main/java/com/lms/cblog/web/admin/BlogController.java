@@ -32,7 +32,7 @@ public class BlogController {
 
     private static String INPUT="admin/blogs-input";
     private static String LIST="admin/adminBlogs";
-    private static String REDIRECT_LIST="redirect:/admin/adminBlogs";
+    private static String REDIRECT_LIST="redirect:/admin/blogs";
 
     @Autowired
     private BlogService blogService;
@@ -57,7 +57,7 @@ public class BlogController {
     @PostMapping("/blogs/search")
     public String search(@PageableDefault(size = 8,sort= {"updateTime"},direction = Sort.Direction.DESC) Pageable pageable, BlogQuery blog, Model model){
         model.addAttribute("page",blogService.listBlog(pageable,blog));
-        return "admin/addBlog :: blogList";
+        return "admin/adminBlogs :: blogList";
     }
 
     //跳转到新增博客页面

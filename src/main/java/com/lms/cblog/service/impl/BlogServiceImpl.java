@@ -65,7 +65,7 @@ public class BlogServiceImpl implements BlogService {
                     predicates.add(cb.like(root.<String>get("title"), "%"+blog.getTitle()+"%"));
                 }
                 if (blog.getTypeId() != null) {
-                    predicates.add(cb.equal(root.<Type>get("type").get("id"), blog.getTitle()));
+                    predicates.add(cb.equal(root.<Type>get("type").get("id"), blog.getTypeId()));
                 }
                 if (blog.isRecommend()) {
                     predicates.add(cb.equal(root.<Boolean>get("recommend"), blog.isRecommend()));
@@ -75,6 +75,9 @@ public class BlogServiceImpl implements BlogService {
             }
         },pageable);
     }
+
+
+
 
     @Override
     public Page<Blog> listBlog(Pageable pageable) {

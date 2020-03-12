@@ -4,6 +4,7 @@ package com.lms.cblog.web;
  *Time 2019/8/25/025 12:13
  */
 
+import com.lms.cblog.po.Blog;
 import com.lms.cblog.service.BlogService;
 import com.lms.cblog.service.TagService;
 import com.lms.cblog.service.TypeService;
@@ -50,6 +51,9 @@ public class indexController {
     @GetMapping("/blog/{id}")
     public String blog(@PathVariable Long id,Model model) throws NotFoundException {
         model.addAttribute("blog",blogService.getAndConvert(id));
+        Blog b=blogService.getBlog(id);
+        b.setViews(b.getViews()+1);
+        blogService.updateBlog(b.getId(),b);
         return "blogDetail";
     }
 }
