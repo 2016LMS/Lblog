@@ -24,8 +24,8 @@
                 <div class="right item">
                     <div class="ui input">
                         <input type="text" placeholder="Search">
-                        <img src="../static/images/search2.svg" style="display:block;width: 25px" th:src="@{/images/search2.svg}"/>
                     </div>
+                    <img src="../static/images/search2.svg" style="display:block;width: 25px" th:src="@{/images/search2.svg}"/>
                 </div>
             </div>
         </div>
@@ -66,14 +66,14 @@
                                         <div class="eleven wide column">
                                             <div class="ui horizontal link list">
                                                 <div class="item">
-                                                    <img src="../static/images/p2.jpg" class="ui avatar image" th:src="@{${blog.user.avatar}}" style="height: 40px;width: 40px">
+                                                    <img src="../static/images/p2.jpg" class="ui avatar image" th:src="@{'/images/'+${blog.user.avatar}}" style="height: 30px;width: 30px">
                                                     <div class="content"><a href="#" class="header" th:text="${blog.user.nickname}">linsanity</a></div>
                                                 </div>
                                                 <div class="item">
-                                                    <img src="../static/images/calendar.svg" style="display:block;width: 16px" /> <div th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2019-8-17</div>
+                                                    <img src="../static/images/calendar.svg" th:src="@{/images/calendar.svg}" style="display:block;width: 16px" /> <div th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2019-8-17</div>
                                                 </div>
                                                 <div class="item">
-                                                    <img src="../static/images/see.svg" style="display:block;width: 16px" /><span th:text="${blog.views}">2324</span>
+                                                    <img src="../static/images/see.svg" th:src="@{/images/see.svg}" style="display:block;width: 16px" /><span th:text="${blog.views}">2324</span>
                                                 </div>
                                             </div>
                                         </div>

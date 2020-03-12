@@ -22,6 +22,7 @@ public class User {
     private String password;
     private String email;
     private String avatar;
+
     private Integer type;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;

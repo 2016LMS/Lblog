@@ -44,6 +44,8 @@ public class Blog {
     @Transient
     private String tagIds;
 
+    private String description;
+
     public Blog() {
 
     }
@@ -193,6 +195,14 @@ public class Blog {
 
     public void init(){
         this.tagIds=tagsToIds(this.getTags());
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     private String tagsToIds(List<Tag> tags){

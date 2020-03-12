@@ -60,6 +60,7 @@ public class BlogController {
         return "admin/addBlog :: blogList";
     }
 
+    //跳转到新增博客页面
     @GetMapping("blogs/input")
     public String input(Model model){
         model.addAttribute("types",typeService.listType());
@@ -68,6 +69,7 @@ public class BlogController {
         return INPUT;
     }
 
+    //修改功能
     @GetMapping("blogs/{id}/input")
     public String editInput(@PathVariable Long id, Model model){
         model.addAttribute("types",typeService.listType());
@@ -78,7 +80,7 @@ public class BlogController {
         return INPUT;
     }
 
-
+    //新增博客
     @PostMapping("/blogs")
     public String post(Blog blog, HttpSession session, RedirectAttributes attributes) throws NotFoundException {
         blog.setUser((User) session.getAttribute("user"));
