@@ -32,7 +32,7 @@ public class BlogController {
 
     private static String INPUT="admin/blogs-input";
     private static String LIST="admin/adminBlogs";
-    private static String REDIRECT_LIST="redirect:/admin/blogs";
+    private static String REDIRECT_LIST="redirect:/admin/blogs"; //重定向到这个mapping对应的controller
 
     @Autowired
     private BlogService blogService;

@@ -15,17 +15,25 @@
     <nav class="ui inverted attached segment m-shadow-small">
         <div class="ui container">
             <div class="ui inverted secondary stackable menu m-padded-tb-mini">
-                <h2 class="ui teal header">Blog</h2>
-                <a href="#"class="m-item active item m-mobile-hide"><img src="../static/images/Home.svg" style="display:block;width: 20px" th:src="@{/images/Home.svg}"/>首页</a>
-                <a href="#"class="m-item item m-mobile-hide"><img src="../static/images/classify.svg" style="display:block;width: 20px" th:src="@{/images/classify.svg}" /></i>分类</a>
-                <a href="#"class="m-item item m-mobile-hide"><img src="../static/images/tag3.svg" style="display:block;width: 20px" th:src="@{/images/tag3.svg}"/>标签</a>
-                <a href="#"class="m-item item m-mobile-hide"><img src="../static/images/归档.svg" style="display:block;width: 20px" th:src="@{/images/归档.svg}"/>归档</a>
-                <a href="#"class="m-item item m-mobile-hide"><img src="../static/images/head.svg" style="display:block;width: 20px" th:src="@{/images/head.svg}"/>关于我</a>
+                <h2 class="ui orange header m-padded-r">LBlog</h2>
+                <a href="#" class="m-item active item m-mobile-hide"><img src="../static/images/Home.svg" style="display:block;width: 20px" th:src="@{/images/Home.svg}"/>首页</a>
+                <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide"><img src="../static/images/classify.svg" style="display:block;width: 20px" th:src="@{/images/classify.svg}" /></i>分类</a>
+                <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide"><img src="../static/images/tag3.svg" style="display:block;width: 20px" th:src="@{/images/tag3.svg}"/>标签</a>
+                <a href="#"  class="m-item item m-mobile-hide"><img src="../static/images/归档.svg" style="display:block;width: 20px" th:src="@{/images/归档.svg}"/>归档</a>
+                <a href="aboutMe.html"  class="m-item item m-mobile-hide"><img src="../static/images/head.svg" style="display:block;width: 20px" th:src="@{/images/head.svg}"/>关于我</a>
+                <a href="https://github.com/2016LMS/Lblog" target="_blank" class="m-item item m-mobile-hide"><img src="../static/images/github.svg" style="display:block;width: 20px" th:src="@{/images/github.svg}">源码</a>
                 <div class="right item">
                     <div class="ui input">
                         <input type="text" placeholder="Search">
                     </div>
-                    <img src="../static/images/search2.svg" style="display:block;width: 25px" th:src="@{/images/search2.svg}"/>
+                    <img src="../static/images/search2.svg" style="display:block;width: 45px" th:src="@{/images/search2.svg}"/>
+                    <!--<a class="gh-btn" id="gh-btn" href="https://github.com/2016LMS/Lblog" target="_blank"><img src="../static/images/github.svg" th:src="@{/images/github.svg}" style="display:block;width: 20px"></a>-->
+                    <div class=" item m-padded-l m-padded-tb-small">
+                        <div class="small ui buttons m-padded-tb-small">
+                            <button class="ui orange button">登录</button>
+                            <button class="ui blue button">注册</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -424,14 +432,14 @@
                                     分类
                                 </div>
                                 <div class="right aligned column">
-                                    <a href="#">more >> </a>
+                                    <a href="#" th:href="@{/types/-1}">more >> </a>
                                 </div>
                             </div>
                         </div>
                         <!--分类内容部-->
                         <div class="ui teal segment">
                             <div class="ui fluid vertical menu" >
-                                <a href="#" class="item" th:each="type : ${types}"><span th:text="${type.name}">学习日志</span>
+                                <a href="#" class="item" th:href="@{/types/{id}(id=${type.id})}" target="_blank" th:each="type : ${types}"><span th:text="${type.name}">学习日志</span>
                                     <div class="ui orange basic right pointing label" th:text="${#arrays.length(type.blogs)}">13</div>
                                 </a>
                                 <!--/*-->

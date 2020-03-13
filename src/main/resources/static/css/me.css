@@ -44,6 +44,13 @@
     padding-right: 4em !important;
 }
 
+.m-padded-r{
+    padding-right: 2em !important;
+}
+.m-padded-l{
+    padding-left: 2em !important;
+}
+
 /* ----------------margin-------------*/
 
 .m-margin-top-small{
