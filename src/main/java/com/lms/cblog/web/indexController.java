@@ -56,4 +56,9 @@ public class indexController {
         blogService.updateBlog(b.getId(),b);
         return "blogDetail";
     }
+
+    @GetMapping("/aboutMe")
+    public String aboutMe(){
+        return "aboutMe";
+    }
 }

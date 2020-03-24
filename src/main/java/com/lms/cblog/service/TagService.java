@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface TagService {
 
-    Tag saveTag(Tag type);
+    Tag saveTag(Tag tag);
 
     Tag getTag(Long id);
 
@@ -25,7 +25,7 @@ public interface TagService {
 
    List<Tag> listTag(String ids);
 
-    Tag updateTag(Long id, Tag type) throws NotFoundException;
+    Tag updateTag(Long id, Tag tag) throws NotFoundException;
 
     void deleteTag(Long id);
 }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+    <link rel="stylesheet"type="text/css"  href="../static/css/semantic.min.css" th:href="@{/css/semantic.min.css}" />
+    <link type="text/css" rel="stylesheet" href="../static/css/me.css " th:href="@{/css/me.css}" />
+    <link type="text/css" rel="stylesheet" href="../static/css/icon.min.css" th:href="@{/css/icon.min.css}" />
+</head>
+<body>
+    <div class="ui styled accordion">
+        <div class="title"><i class="dropdown icon"></i> 注册 </div>
+        <div class="content">
+            <form class="ui form" method="post" action="#" th:action="@{/admin/register}">
+                <div class="ui segment">
+                    <div class="field">
+                        <div class="ui input">
+                            <img src="../static/images/password.svg" style="width: 25px;">
+                            <input type="text" name="username" placeholder="请输入用户名">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui input">
+                            <img src="../static/images/password.svg" style="width: 25px;">
+                            <input type="password" name="password" id="password1" placeholder="请输入密码">
+                            <input type="password" name="ConfirmPassword" id="password2" placeholder="确认密码">
+                        </div>
+                    </div>
+
+                    <div class="ui buttons">
+                        <button class="ui button" type="submit" id="registerButton">确认注册</button>
+                        <button class="ui button" type="reset">清空输入框</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+        <!--<script src="../static/js/jquery.min.js"></script>-->
+    <script src="../static/js/jquery.min.js" type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+    <!--<script src="../static/js/semantic.min.js"></script>-->
+    <script src="../static/js/semantic.min.js" type="text/javascript" th:src="@{/js/semantic.min.js}"></script>
+    <script src="register.js" type="text/javascript" th:src="@{/register.js}"></script>
+
+
+</body>
+</html>

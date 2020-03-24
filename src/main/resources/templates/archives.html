@@ -16,10 +16,11 @@
         <div class="ui inverted secondary stackable menu m-padded-tb-mini">
             <h2 class="ui teal header">Blog</h2>
             <a href="#"class="m-item item m-mobile-hide"><img src="../static/images/Home.svg" style="display:block;width: 20px" th:src="@{/images/Home.svg}" />首页</a>
-            <a href="#"class="m-item item m-mobile-hide"><img src="../static/images/classify.svg" style="display:block;width: 20px" th:src="@{/images/classify.svg}"/></i>分类</a>
-            <a href="#"class="m-item active item m-mobile-hide"><img src="../static/images/tag3.svg" style="display:block;width: 20px" th:src="@{/images/tag3.svg}"/>标签</a>
-            <a href="#"class="m-item item m-mobile-hide"><img src="../static/images/归档.svg" style="display:block;width: 20px" th:src="@{/images/归档.svg}"/>归档</a>
-            <a href="#"class="m-item item m-mobile-hide"><img src="../static/images/head.svg" style="display:block;width: 20px" th:src="@{/images/head.svg}"/>关于我</a>
+            <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide"><img src="../static/images/classify.svg" style="display:block;width: 20px" th:src="@{/images/classify.svg}"/></i>分类</a>
+            <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide"><img src="../static/images/tag3.svg" style="display:block;width: 20px" th:src="@{/images/tag3.svg}"/>标签</a>
+            <a href="#"class="m-item active item m-mobile-hide"><img src="../static/images/归档.svg" style="display:block;width: 20px" th:src="@{/images/归档.svg}"/>归档</a>
+            <a href="#" th:href="@{/aboutMe}" class="m-item item m-mobile-hide"><img src="../static/images/head.svg" style="display:block;width: 20px" th:src="@{/images/head.svg}"/>作者信息</a>
+            <a href="https://github.com/2016LMS/Lblog" target="_blank" class="m-item item m-mobile-hide"><img src="../static/images/github.svg" style="display:block;width: 20px" th:src="@{/images/github.svg}">源码</a>
             <div class="right item">
                 <div class="ui input">
                     <input type="text" placeholder="Search">
@@ -41,18 +42,20 @@
                         <h3 class="ui teal header">归档</h3>
                     </div>
                     <div class="right aligned column">
-                        共<h3 class="ui orange header m-inline-block m-text-thin">   114  </h3>个博客
+                        共<h3 class="ui orange header m-inline-block m-text-thin" th:text="${blogCount}">   114  </h3>个博客
                     </div>
                 </div>
             </div>
+
+           <th:block th:each="item : ${archiveMap}">
            <h3 class="ui center aligned header">2019</h3>
             <div class="ui fluid vertical menu">
-                    <a href="#" target="_blank" class="item">
+                    <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item" th:each="blog : ${item.value}">
                         <span>
-                            关于刻意练习的清单
-                            <div class="ui teal basic left pointing mini label">9月03</div>
+                            <span th:text="${blog.title}">关于刻意练习的清单</span>
+                            <div class="ui teal basic left pointing mini label" th:text="${#dates.format(blog.updateTime,'MMMdd')}">9月03</div>
                         </span>
-                        <div class="ui orange basic label">原创</div>
+                        <div class="ui orange basic label" th:text="${blog.flag}">原创</div>
                     </a>
                 <a href="#" target="_blank" class="item">
                         <span>
@@ -61,6 +64,7 @@
                         </span>
                     <div class="ui orange basic label">原创</div>
                 </a>
+                <!--/*-->
                 <a href="#" target="_blank" class="item">
                         <span>
                             关于刻意练习的清单
@@ -75,7 +79,10 @@
                         </span>
                     <div class="ui orange basic label">原创</div>
                 </a>
+                <!--*/-->
             </div>
+            </th:block>
+            <!--/*-->
             <h3 class="ui center aligned header">2018</h3>
             <div class="ui fluid vertical menu">
                 <a href="#" target="_blank" class="item">
@@ -138,6 +145,7 @@
                     <div class="ui orange basic label">原创</div>
                 </a>
             </div>
+            <!--*/-->
         </div>
     </div>
 

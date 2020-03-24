@@ -16,10 +16,11 @@
         <div class="ui inverted secondary stackable menu m-padded-tb-mini">
             <h2 class="ui teal header">Blog</h2>
             <a href="#"class="m-item item m-mobile-hide"><img src="../static/images/Home.svg" style="display:block;width: 20px" th:src="@{/images/Home.svg}"/>首页</a>
-            <a href="#"class="m-item active item m-mobile-hide"><img src="../static/images/classify.svg" style="display:block;width: 20px" th:src="@{/images/classify.svg}" /></i>分类</a>
-            <a href="#"class="m-item item m-mobile-hide"><img src="../static/images/tag3.svg" style="display:block;width: 20px" th:src="@{/images/tag3.svg}"/>标签</a>
+            <a href="#" th:href="@{/types/-1}" class="m-item active item m-mobile-hide"><img src="../static/images/classify.svg" style="display:block;width: 20px" th:src="@{/images/classify.svg}" /></i>分类</a>
+            <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide"><img src="../static/images/tag3.svg" style="display:block;width: 20px" th:src="@{/images/tag3.svg}"/>标签</a>
             <a href="#"class="m-item item m-mobile-hide"><img src="../static/images/归档.svg" style="display:block;width: 20px" th:src="@{/images/归档.svg}"/>归档</a>
-            <a href="#"class="m-item item m-mobile-hide"><img src="../static/images/head.svg" style="display:block;width: 20px" th:src="@{/images/head.svg}"/>关于我</a>
+            <a href="#"class="m-item item m-mobile-hide"><img src="../static/images/head.svg" style="display:block;width: 20px" th:src="@{/images/head.svg}"/>作者信息</a>
+            <a href="https://github.com/2016LMS/Lblog" target="_blank" class="m-item item m-mobile-hide"><img src="../static/images/github.svg" style="display:block;width: 20px" th:src="@{/images/github.svg}">源码</a>
             <div class="right item">
                 <div class="ui input">
                     <input type="text" placeholder="Search">
@@ -82,7 +83,7 @@
                 <!--*/-->
             </div>
             <div class="ui teal attached segment">
-                <div class="ui  padded vertical segment" th:each="blog : ${page.content}">
+                <div class="ui  padded vertical segment" th:each="blog : ${type.blogs}">
                     <div class="ui middle aligned mobile reversed stackable grid" >
                         <div class="eleven wide column">
                             <h3 class="ui header"><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-orange" th:text="${blog.title}">你真的理解什么是财富自由吗</a></h3>
@@ -353,11 +354,11 @@
             <div class="ui bottom attached segment" th:if="${page.totalPages}>1">
                 <div class="ui  middle aligned two column grid">
                     <div class="column">
-                        <a href="#" th:href="@{/(page=${page.number}-1)}" class="ui teal basic button">上一页</a>
+                        <a href="#" th:href="@{/(page=${page.number}-1)}" th:unless="${page.first}" class="ui teal basic button">上一页</a>
                     </div>
 
                     <div class="right aligned column">
-                        <a href="#" th:href="@{/(page=${page.number}+1)}" class="ui teal basic button">下一页</a>
+                        <a href="#" th:href="@{/(page=${page.number}+1)}" th:unless="${page.last}" class="ui teal basic button">下一页</a>
                     </div>
 
                 </div>

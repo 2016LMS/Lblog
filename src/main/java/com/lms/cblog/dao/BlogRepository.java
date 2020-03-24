@@ -16,4 +16,10 @@ public interface BlogRepository extends JpaRepository<Blog,Long>, JpaSpecificati
 
     @Query("select b from Blog b where b.recommend = true")
     List<Blog> findTop(Pageable pageable);
+    //找出博客的年份
+    @Query("select function('data_format',b.updateTime,'%Y') as year from Blog b group by function('data_format',b.updateTime,'%Y') order by year DESC")
+    List<String> findGroupYear();
+
+    @Query("select b from Blog b where function('data_format',b.updateTime,'%Y') = ?1 ")
+    List<Blog> findByYear(String year);
 }

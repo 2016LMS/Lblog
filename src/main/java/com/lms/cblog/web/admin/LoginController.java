@@ -28,6 +28,7 @@ public class LoginController {
     }
 
     @PostMapping("/login")
+    //get请求提交的参数需要和Controller方法中的入参名称一致
     public String login(@RequestParam String username, @RequestParam String password, HttpSession session, RedirectAttributes attributes, Model model){       //@RequestParam注解是用于接收前台post携带的参数/请求数据？
         User user =userService.checkUser(username,password);
         if(user!=null){
