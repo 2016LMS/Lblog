@@ -61,7 +61,7 @@ public class BlogController {
     }
 
     //跳转到新增博客页面
-    @GetMapping("blogs/input")
+    @GetMapping("/blogs/input")
     public String input(Model model){
         model.addAttribute("types",typeService.listType());
         model.addAttribute("tags",tagService.listTag());

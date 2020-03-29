@@ -96,61 +96,61 @@ public class TagController {
 
     //改造成单体应用时新增的方法
 
-    //新增一个标签
-    @PostMapping("/tag")
-    public Tag saveTag(Tag tag){
-        return tagService.saveTag(tag);
-    }
-
-    //根据id查询一个分类
-    @GetMapping("/type")
-    public Tag getTypeById(Long id){
-        return tagService.getTag(id);
-    }
-
-    //根据name查询一个分类
-    @GetMapping("/type")
-    @ResponseBody
-    public Tag getTypeByName(String name){
-        return tagService.getTagByName(name);
-    }
-
-    //根据分页信息查询一页的数据
-    @PostMapping("/tags")
-    @ResponseBody
-    public Page<Tag> listTypes(Pageable pageable){
-        return tagService.listTag(pageable);
-    }
-
-    //查询所有的标签
-    @GetMapping("/tags")
-    public List<Tag>listAll(){
-        return tagService.listTag();
-    }
-
-    //修改分类信息
-    @PostMapping("/type")
-    public Tag updateType(Long id,Tag tag) throws NotFoundException {
-        return tagService.updateTag(id,tag);
-    }
-
-    //删除一条记录
-    public void deleteTag(Long id){
-        tagService.deleteTag(id);
-    }
-
-    //从阅读量由高到低查询分类
-    @GetMapping("/typesTop")
-    @ResponseBody
-    public List<Tag> listTypeTop(Integer size){
-        return tagService.listTagTop(size);
-    }
-
-    @PostMapping("/tagsByIds")
-    public List<Tag> listTagsByIds(String ids){
-        return tagService.listTag(ids);
-    }
-
+//    //新增一个标签
+//    @PostMapping("/tag")
+//    public Tag saveTag(Tag tag){
+//        return tagService.saveTag(tag);
+//    }
+//
+//    //根据id查询一个分类
+//    @GetMapping("/type")
+//    public Tag getTypeById(Long id){
+//        return tagService.getTag(id);
+//    }
+//
+//    //根据name查询一个分类
+//    @GetMapping("/type")
+//    @ResponseBody
+//    public Tag getTypeByName(String name){
+//        return tagService.getTagByName(name);
+//    }
+//
+//    //根据分页信息查询一页的数据
+//    @PostMapping("/tags")
+//    @ResponseBody
+//    public Page<Tag> listTags(Pageable pageable){
+//        return tagService.listTag(pageable);
+//    }
+//
+//    //查询所有的标签
+//    @GetMapping("/tags")
+//    public List<Tag>listAll(){
+//        return tagService.listTag();
+//    }
+//
+//    //修改分类信息
+//    @PostMapping("/type")
+//    public Tag updateType(Long id,Tag tag) throws NotFoundException {
+//        return tagService.updateTag(id,tag);
+//    }
+//
+//    //删除一条记录
+//    public void deleteTag(Long id){
+//        tagService.deleteTag(id);
+//    }
+//
+//    //从阅读量由高到低查询分类
+//    @GetMapping("/typesTop")
+//    @ResponseBody
+//    public List<Tag> listTypeTop(Integer size){
+//        return tagService.listTagTop(size);
+//    }
+//
+//    @PostMapping("/tagsByIds")
+//    public List<Tag> listTagsByIds(String ids){
+//        return tagService.listTag(ids);
+//    }
+//
 
 }
 

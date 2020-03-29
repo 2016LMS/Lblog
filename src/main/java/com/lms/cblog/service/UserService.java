@@ -10,4 +10,8 @@ import org.springframework.stereotype.Service;
 
 public interface UserService {
     User checkUser(String username,String password);
+
+    User getUserByname(String name);
+
+    User saveUser(User user);
 }

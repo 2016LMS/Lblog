@@ -6,6 +6,7 @@ package com.lms.cblog.web;
 
 import com.lms.cblog.po.Blog;
 import com.lms.cblog.service.BlogService;
+import com.lms.cblog.service.CommentService;
 import com.lms.cblog.service.TagService;
 import com.lms.cblog.service.TypeService;
 import com.lms.cblog.vo.BlogQuery;
@@ -35,6 +36,9 @@ public class indexController {
     @Autowired
     private TagService tagService;
 
+    @Autowired
+    private CommentService commentService;
+
     @RequestMapping("/")
     public String index(@PageableDefault(size = 8,
             sort= {"updateTime"},
@@ -42,6 +46,7 @@ public class indexController {
                          BlogQuery blog, Model model){
 
         model.addAttribute("page",blogService.listBlog(pageable));
+        model.addAttribute("recommendBlogs",blogService.listRecommendBlogTop(4));
         model.addAttribute("types",typeService.listTypeTop(6));
         model.addAttribute("tags",tagService.listTagTop(10));
         model.addAttribute("recommendBlogs",blogService.listRecommendBlogTop(8));
@@ -51,6 +56,7 @@ public class indexController {
     @GetMapping("/blog/{id}")
     public String blog(@PathVariable Long id,Model model) throws NotFoundException {
         model.addAttribute("blog",blogService.getAndConvert(id));
+        model.addAttribute("comments",commentService.listCommentByBlogId(id));
         Blog b=blogService.getBlog(id);
         b.setViews(b.getViews()+1);
         blogService.updateBlog(b.getId(),b);

@@ -102,54 +102,54 @@ public class TypeController {
       *以下是单体应用改造时，新增的提供给服务消费者的service层使用的方法
      **/
 
-    //新增一个分类
-    @PostMapping("/type")
-    public Type saveType(Type type){
-        return typeService.saveType(type);
-    }
-    //根据id查询一个分类
-    @GetMapping("/type")
-    public Type getTypeById(Long id){
-        return typeService.getType(id);
-    }
-
-    //根据name查询一个分类
-    @GetMapping("/type")
-    @ResponseBody
-    public Type getTypeByName(String name){
-        return typeService.getTypeByName(name);
-    }
-
-    //根据分页信息查询一页的数据
-    @PostMapping("/types")
-    @ResponseBody
-    public Page<Type> listTypes(Pageable pageable){
-        return typeService.listType(pageable);
-    }
-
-    //修改分类信息
-    @PutMapping("/type")
-    public Type updateType(Long id,Type type){
-        return typeService.updateType(id,type);
-    }
-
-    //删除一条记录
-    public void deleteType(Long id){
-        typeService.deleteType(id);
-    }
-
-    //查询所有的分类
-    @GetMapping("/types")
-    public List<Type>listAll(){
-        return typeService.listType();
-    }
-
-    //从阅读量由高到低查询分类
-    @GetMapping("/typesTop")
-    @ResponseBody
-    public List<Type> listTypeTop(Integer size){
-        return typeService.listTypeTop(size);
-    }
+//    //新增一个分类
+//    @PostMapping("/type")
+//    public Type saveType(Type type){
+//        return typeService.saveType(type);
+//    }
+//    //根据id查询一个分类
+//    @GetMapping("/type")
+//    public Type getTypeById(Long id){
+//        return typeService.getType(id);
+//    }
+//
+//    //根据name查询一个分类
+//    @GetMapping("/type")
+//    @ResponseBody
+//    public Type getTypeByName(String name){
+//        return typeService.getTypeByName(name);
+//    }
+//
+//    //根据分页信息查询一页的数据
+//    @PostMapping("/types")
+//    @ResponseBody
+//    public Page<Type> listTypes(Pageable pageable){
+//        return typeService.listType(pageable);
+//    }
+//
+//    //修改分类信息
+//    @PutMapping("/type")
+//    public Type updateType(Long id,Type type){
+//        return typeService.updateType(id,type);
+//    }
+//
+//    //删除一条记录
+//    public void deleteType(Long id){
+//        typeService.deleteType(id);
+//    }
+//
+//    //查询所有的分类
+//    @GetMapping("/types")
+//    public List<Type>listAll(){
+//        return typeService.listType();
+//    }
+//
+//    //从阅读量由高到低查询分类
+//    @GetMapping("/typesTop")
+//    @ResponseBody
+//    public List<Type> listTypeTop(Integer size){
+//        return typeService.listTypeTop(size);
+//    }
 
 
 

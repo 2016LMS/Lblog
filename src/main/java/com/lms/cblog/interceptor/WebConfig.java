@@ -16,7 +16,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns("/admin/**")   //过滤http://localhost:8080/admin/** 所有路径
                 .excludePathPatterns("/admin")  //不会过滤http://localhost:8080/admin 路径
-                .excludePathPatterns("/admin/login");  //不会过滤http://localhost:8080/admin/login 路径
+                .excludePathPatterns("/admin/login")  //不会过滤http://localhost:8080/admin/login 路径
+                .excludePathPatterns("/admin/register"); ////不会过滤http://localhost:8080/admin/register 路径
 
     }
 }

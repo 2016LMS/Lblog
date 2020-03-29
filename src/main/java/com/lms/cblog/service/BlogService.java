@@ -31,4 +31,6 @@ public interface BlogService {
     Blog updateBlog(Long id, Blog blog) throws NotFoundException;
 
     void deleteBlog(Long id);
+
+
 }

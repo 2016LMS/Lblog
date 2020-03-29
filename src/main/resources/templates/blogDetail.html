@@ -18,16 +18,16 @@
     <div class="ui container">
         <div class="ui inverted secondary stackable menu m-padded-tb-mini">
             <h2 class="ui teal header">Blog</h2>
-            <a href="#"class="m-item item m-mobile-hide"><img src="../static/images/Home.svg" style="display:block;width: 20px" th:src="@{/images/Home.svg}"/>首页</a>
+            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide"><img src="../static/images/Home.svg" style="display:block;width: 20px" th:src="@{/images/Home.svg}"/>首页</a>
             <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide"><img src="../static/images/classify.svg" style="display:block;width: 20px" th:src="@{/images/classify.svg}"/></i>分类</a>
             <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide"><img src="../static/images/tag3.svg" style="display:block;width: 20px" th:src="@{/images/tag3.svg}"/>标签</a>
-            <a href="#"class="m-item item m-mobile-hide"><img src="../static/images/归档.svg" style="display:block;width: 20px"th:src="@{/images/归档.svg}" />归档</a>
+            <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide"><img src="../static/images/归档.svg" style="display:block;width: 20px"th:src="@{/images/归档.svg}" />归档</a>
             <a href="#"class="m-item item m-mobile-hide"><img src="../static/images/head.svg" style="display:block;width: 20px" th:src="@{/images/Head.svg}"/>作者信息</a>
             <a href="https://github.com/2016LMS/Lblog" target="_blank" class="m-item item m-mobile-hide"><img src="../static/images/github.svg" style="display:block;width: 20px" th:src="@{/images/github.svg}">源码</a>
             <div class="right item">
                 <div class="ui input">
                     <input type="text" placeholder="Search">
-                    <img src="../static/images/search2.svg" th:src="@{/images/search2.svg}" style="display:block;width: 25px" />
+                    <img src="../static/images/search2.svg" th:src="@{/images/search2.svg}" style="display:block;width: 30px;height: 30px;" />
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
             <div class="ui top attached segment">
                 <div class="ui horizontal link list">
                     <div class="item">
-                        <img src="../static/images/p2.jpg" class="ui avatar image" style="height: 40px;width: 40px"  th:src="@{'/images/'+${blog.user.avatar}}">
+                        <img src="../static/images/p2.jpg" class="ui avatar image" style="height: 40px;width: 40px"  th:src="@{'/images/avatars/'+${blog.user.avatar}}">
                         <div class="content"><a href="#" class="header" th:text="${blog.user.nickname}">linsanity</a></div>
                     </div>
                     <div class="item">
@@ -60,8 +60,8 @@
             <!--内容区域-->
             <div class="ui attached padded segment">
                 <div class="ui right aligned basic segment">
-                    <div class="ui orange label" th:text="${blog.flag}">
-                        原创
+                    <div class="ui orange label">
+                        <span th:text="${blog.flag}">原创</span>
                     </div>
                 </div>
                 <h2 class="ui centered header" th:text="${blog.title}">关于人生的话</h2>
@@ -396,8 +396,8 @@ h5,h6{font-size:1em;}
                 </div>
             </div>
             <div class="seven wide column">
-                <h4 class="ui inverted header">最新博客</h4>
-                <p>asdddas;jflakfhalhfaslhfalsfhaslsaklfalfaslfhsklafhsa</p>
+                <h4 class="ui inverted header">经典格言</h4>
+                <p>一个人最大的敌人就是自己！</p>
             </div>
         </div>
         <br>
@@ -451,9 +451,21 @@ h5,h6{font-size:1em;}
         }
     });
 
-    $(function () {
-        $("#comment-container").load(/*[[ ```@{/comments/{id}(id=${blog.id})}]]*/"comments/6");
-    });
+    // $(function () {
+    //     $("#comment-container").load(/*[[@{/comments/{id}(id=${blog.id})}]]*/"comments/6");
+    // });
+
+    // $(function () {
+    //     // $("#comment-container").load(/*[[@{/comments/{id}(id=${blog.id})}]]*/"comments/6");
+    //     var url="/comments/"+[[${blog.id}]];
+    //     $.ajax({
+    //         url: url,
+    //         type: 'GET',
+    //         success: function () {
+    //             console.log("成功！！");
+    //         }
+    //     });
+    // });
 
     $('#commentpost-btn').click(function () {
         var boo=$('.ui.form').form('validate form');
@@ -466,7 +478,7 @@ h5,h6{font-size:1em;}
     });
 
     function postData() {
-        $("#comment-container").load(/*[[@{/comments}]]*/"",{
+        $("#comment-container").load(/*[[@{/comments}]]*/"/comments",{
             "parentComment.id" : $("[name='parentComment.id']").val(),
             "blog.id" : $("[name='blog.id']").val(),
             "nickname": $("[name='nickname']").val(),
@@ -477,6 +489,26 @@ h5,h6{font-size:1em;}
             clearContent();
         });
     }
+
+
+    function post2() {
+        var url = '/comments/'+[[${blog.id}]];
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: {
+                "parentComment.id" : $("[name='parentComment.id']").val(),
+                "blog.id" : $("[name='blog.id']").val(),
+                "nickname": $("[name='nickname']").val(),
+                "email"   : $("[name='email']").val(),
+                "content" : $("[name='content']").val()
+            },
+            success: function (data) {
+                console.log("success");
+            }
+        })
+    }
+
 
     function clearContent(){
         $("[name='content']").val('');

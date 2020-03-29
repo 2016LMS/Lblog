@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  * Autor Lms
@@ -30,9 +31,10 @@ public class CommentController {
     @GetMapping("/comments/{blogId}")
     public String listComments(@PathVariable Long blogId, Model model){
         model.addAttribute("comments",commentService.listCommentByBlogId(blogId));
-        return "blog :: commentList";
+        return "blogDetail :: commentList";
     }
 
+    @PostMapping("/comments")
     public String post(Comment comment){
         Long blogId=comment.getBlog().getId();
         comment.setBlog(blogService.getBlog(blogId));

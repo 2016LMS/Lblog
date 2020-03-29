@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../static/css/elegant-icon.css" th:src="@{/css/elegant-icon.css}">
     <style>
         body{
-            background-image: url("../../static/images/glass.jpg");
+            background-image: url("[[@{/images/glass.jpg}]]");
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -32,14 +32,14 @@
                             <div class="field">
                                 <div class="ui left icon input">
                                     <!--<i class="user icon"></i>-->
-                                    <img src="../../static/images/user.svg" style="width: 25px;">
+                                    <img src="../../static/images/user.svg" th:src="@{/images/user.svg}" style="width: 25px;height: 25px">
                                     <input type="text" name="username" placeholder="用户名">
                                 </div>
                             </div>
                             <div class="field">
                                 <div class="ui left icon input">
                                     <!--<i class="lock icon"></i>-->
-                                    <img src="../../static/images/password.svg" style="width: 25px;">
+                                    <img src="../../static/images/password.svg" th:src="@{images/password.svg}" style="width: 25px;height: 25px">
                                     <input type="password" name="password" placeholder="密码">
                                 </div>
                             </div>
@@ -104,7 +104,7 @@
                                     </div>
 
                                     <div class="ui buttons">
-                                        <button class="ui button" type="submit" id="registerButton">确认注册</button>
+                                        <button class="ui submit button" type="submit" id="registerButton">确认注册</button>
                                         <button class="ui button" type="reset">清空输入框</button>
                                     </div>
 
@@ -160,19 +160,35 @@
     // 设置登录注册模块透明度
     $(".ui.container").css({ opacity: .9 });
 
-    $("#registerButton").click(function () {
+    // $("#registerButton").click(function () {
+    //     var password1=$('#password1').val();
+    //     var password2=$('#password2').val();
+    //     if(password1 == ""){
+    //         alert("密码不能为空！")
+    //         return false; //return false作用一般是用来取消默认动作 / 阻止提交表单 / 阻止继续执行下面的代码
+    //     }
+    //     if (password1 == password2){
+    //         console.log("相等");
+    //         // return true;
+    //     } else {
+    //         alert("两次输入密码不一致！");
+    //         console.log("不相等");
+    //         return false;
+    //     }
+    // });
+    $("#password2").blur(function () {
         var password1=$('#password1').val();
         var password2=$('#password2').val();
         if(password1 == ""){
             alert("密码不能为空！")
-            return false;
+            return false; //return false作用一般是用来取消默认动作 / 阻止提交表单 / 阻止继续执行下面的代码
         }
         if (password1 == password2){
-            console.log("相等")
-            return true;
+            console.log("相等");
+            // return true;
         } else {
             alert("两次输入密码不一致！");
-            console.log("不相等")
+            console.log("不相等");
             return false;
         }
     });
