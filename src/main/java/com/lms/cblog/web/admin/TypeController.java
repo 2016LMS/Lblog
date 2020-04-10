@@ -4,6 +4,7 @@ import com.lms.cblog.po.Type;
 import com.lms.cblog.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -32,6 +33,9 @@ public class TypeController {
     public String types(@PageableDefault(size=5,sort={"id"},direction = Sort.Direction.DESC) Pageable pageable,Model model){
 
         model.addAttribute("page",typeService.listType(pageable));
+        System.out.println(pageable.getPageNumber());
+        Pageable pageable2 =PageRequest.of(1,8);
+        System.out.println(pageable2.getPageNumber()+"sada");
         return "admin/types";
     }
 

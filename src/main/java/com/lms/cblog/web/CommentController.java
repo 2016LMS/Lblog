@@ -28,6 +28,7 @@ public class CommentController {
     @Value("${comment.avatar}")
     private String avatar;
 
+    //评论成功后刷新页面
     @GetMapping("/comments/{blogId}")
     public String listComments(@PathVariable Long blogId, Model model){
         model.addAttribute("comments",commentService.listCommentByBlogId(blogId));

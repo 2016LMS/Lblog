@@ -10,6 +10,7 @@ import com.lms.cblog.service.TagService;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -31,9 +32,10 @@ public class TagController {
     private TagService tagService;
 
     @GetMapping("/tags")
-    public String tags(@PageableDefault(size = 10,sort = {"id"},direction = Sort.Direction.DESC)
+    public String tags(@PageableDefault(size = 8,sort = {"id"},direction = Sort.Direction.DESC)
                                Pageable pageable, Model model) {
         model.addAttribute("page",tagService.listTag(pageable));
+//        Pageable pageable1=new PageRequest(1,8,Sort.Direction.DESC);
         return "admin/tags";
     }
 

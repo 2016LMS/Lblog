@@ -49,7 +49,7 @@ public class indexController {
         model.addAttribute("recommendBlogs",blogService.listRecommendBlogTop(4));
         model.addAttribute("types",typeService.listTypeTop(6));
         model.addAttribute("tags",tagService.listTagTop(10));
-        model.addAttribute("recommendBlogs",blogService.listRecommendBlogTop(8));
+//        model.addAttribute("recommendBlogs",blogService.listRecommendBlogTop(8));
         return "index";   //“/admin”就是controller的映射，“admin/login”就是admin文件夹下的login.html动态页面
     }
 
