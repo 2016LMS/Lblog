@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width",install-scale="1.0">
+    <title>教程内容</title>
+    <link rel="stylesheet"type="text/css"  href="../static/css/semantic.min.css" th:href="@{/css/semantic.min.css}" />
+    <link type="text/css" rel="stylesheet" href="../static/css/me.css " th:href="@{/css/me.css}" />
+    <link type="text/css" rel="stylesheet" href="../static/css/icon.min.css" th:href="@{/css/icon.min.css}" />
+    <link type="text/css" rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+
+    <style>
+        #study1{
+            background: url("https://dpic.tiankong.com/70/rh/QJ8339641868.jpg?x-oss-process=style/794ws");
+            background-size: cover;
+            height: 200px;
+        }
+    </style>
+</head>
+<body class="body-color">
+    <!--导航栏-->
+    <nav class="ui inverted attached segment m-shadow-small">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu m-padded-tb-mini">
+                <h2 class="ui orange header m-padded-r">LBlog</h2>
+                <a href="#" th:href="@{/}" class="m-item item m-mobile-hide"><img src="../static/images/Home.svg" style="display:block;width: 20px" th:src="@{/images/Home.svg}"/>首页</a>
+                <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide"><img src="../static/images/classify.svg" style="display:block;width: 20px" th:src="@{/images/classify.svg}" /></i>分类</a>
+                <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide"><img src="../static/images/tag3.svg" style="display:block;width: 20px" th:src="@{/images/tag3.svg}"/>标签</a>
+                <a href="#" th:href="@{/archives}"  class="m-item item m-mobile-hide"><img src="../static/images/归档.svg" style="display:block;width: 20px" th:src="@{/images/归档.svg}"/>归档</a>
+                <a href="#" th:href="@{/lessons}"  class="m-item active item m-mobile-hide"><img src="../static/images/lesson.svg" style="display:block;width: 20px" th:src="@{/images/lesson.svg}"/>教程</a>
+                <a href="#" th:href="@{/aboutMe}"  class="m-item item m-mobile-hide"><img src="../static/images/head.svg" style="display:block;width: 20px" th:src="@{/images/head.svg}"/>作者信息</a>
+                <a href="https://github.com/2016LMS/Lblog" target="_blank" class="m-item item m-mobile-hide"><img src="../static/images/github.svg" style="display:block;width: 20px" th:src="@{/images/github.svg}">源码</a>
+                <div class="right item m-padded-mini">
+                    <div class="ui input">
+                        <input type="text" placeholder="Search">
+                    </div>
+                    <img src="../static/images/search2.svg" style="display:block;width: 30px" th:src="@{/images/search2.svg}"/>
+                    <div class=" item m-padded-l m-padded-tb-small">
+                        <div class="small ui buttons  m-padded-tb-small">
+                            <button class="ui orange inverted button">登录</button>
+                            <button class="ui blue inverted button">注册</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="ui menu toggle black button m-right-top m-mobile-show"><img src="../static/images/tealMenu.svg" style="width: 35px" th:src="@{/images/tealMenu.svg}"/></a>
+    </nav>
+
+    <!--end of navigation -->
+    <!--中间内容-->
+    <div class="m-padded-tb-big">
+        <div class="ui container">
+            <div class="ui attached segment">
+                <div class="ui header" style="color: orange">
+                    Java教程
+                </div>
+            </div>
+            <div class="ui attached segment">
+                <div id="content" class="typo typo-selection m-padded-lr-responsive m-padded-tb" th:utext="${lesson.content}">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--底部footor-->
+    <footer class="ui inverted vertical segment m-padded-tb">
+        <div class="ui center aligned container">
+            <div class="ui inverted divided stackable grid">
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+                        <div class="item">
+                            <img src="../static/images/selfies.jpg" class="ui rounded image" alt="wechat二维码" style="width: 110px" th:src="@{/images/selfies.jpg}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="three wide column">
+                    <h4 class="ui inverted header">最新博客</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">用户故事</a>
+                        <a href="#" class="item">aiyo</a>
+                        <a href="#" class="item">Linsanity</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header">最新博客</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">用户故事</a>
+                        <a href="#" class="item">aiyo</a>
+                        <a href="#" class="item">Linsanity</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header">经典格言</h4>
+                    <p>一个人最大的敌人就是自己！</p>
+                </div>
+            </div>
+            <br>
+            <div class="ui inverted secondary divider">
+            </div>
+            <p class="m-text-thin m-text-spaced m-opacity-mini">copyright 2016-2020 @linsanity</p>
+        </div>
+
+
+    </footer>
+
+    <!--<script src="../static/js/jquery.min.js"></script>-->
+    <script src="../static/js/jquery.min.js" type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+    <!--<script src="../static/js/semantic.min.js"></script>-->
+    <script src="../static/js/semantic.min.js" type="text/javascript" th:src="@{/js/semantic.min.js}"></script>
+    <!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+    <script src="../static/js/bootstrap.min.js" type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide')
+    });
+
+    $('.special.cards .image').dimmer({
+        on: 'hover'
+    });
+
+</script>
+</body>
+</html>

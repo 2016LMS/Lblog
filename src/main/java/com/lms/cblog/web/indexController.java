@@ -5,10 +5,8 @@ package com.lms.cblog.web;
  */
 
 import com.lms.cblog.po.Blog;
-import com.lms.cblog.service.BlogService;
-import com.lms.cblog.service.CommentService;
-import com.lms.cblog.service.TagService;
-import com.lms.cblog.service.TypeService;
+import com.lms.cblog.po.Lesson;
+import com.lms.cblog.service.*;
 import com.lms.cblog.vo.BlogQuery;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +37,9 @@ public class indexController {
 
     @Autowired
     private CommentService commentService;
+
+    @Autowired
+    private LessonService lessonService;
 
     @RequestMapping("/")
     public String index(@PageableDefault(size = 8,
@@ -61,6 +63,18 @@ public class indexController {
         b.setViews(b.getViews()+1);
         blogService.updateBlog(b.getId(),b);
         return "blogDetail";
+    }
+
+    @GetMapping("/lessons")
+    public String Lessons(){
+        return "lesson";
+    }
+
+
+    @GetMapping("/lesson/{id}")
+    public String toLessonPage(@PathVariable Long id, Model model){
+        model.addAttribute(lessonService.getLesson(id));
+        return "lessonDetail";
     }
 
     @GetMapping("/aboutMe")

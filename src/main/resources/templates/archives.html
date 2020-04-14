@@ -15,18 +15,19 @@
     <div class="ui container">
         <div class="ui inverted secondary stackable menu m-padded-tb-mini">
             <h2 class="ui teal header">Blog</h2>
-            <a href="#"class="m-item item m-mobile-hide"><img src="../static/images/Home.svg" style="display:block;width: 20px" th:src="@{/images/Home.svg}" />首页</a>
+            <a href="#" th:href="/" class="m-item item m-mobile-hide"><img src="../static/images/Home.svg" style="display:block;width: 20px" th:src="@{/images/Home.svg}" />首页</a>
             <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide"><img src="../static/images/classify.svg" style="display:block;width: 20px" th:src="@{/images/classify.svg}"/></i>分类</a>
             <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide"><img src="../static/images/tag3.svg" style="display:block;width: 20px" th:src="@{/images/tag3.svg}"/>标签</a>
-            <a href="#"class="m-item active item m-mobile-hide"><img src="../static/images/归档.svg" style="display:block;width: 20px" th:src="@{/images/归档.svg}"/>归档</a>
+            <a href="#" th:href="@{/archives}" class="m-item active item m-mobile-hide"><img src="../static/images/归档.svg" style="display:block;width: 20px" th:src="@{/images/归档.svg}"/>归档</a>
+            <a href="lesson.html" th:href="@{/lessons}"  class="m-item item m-mobile-hide"><img src="../static/images/lesson.svg" style="display:block;width: 20px" th:src="@{/images/lesson.svg}"/>教程</a>
             <a href="#" th:href="@{/aboutMe}" class="m-item item m-mobile-hide"><img src="../static/images/head.svg" style="display:block;width: 20px" th:src="@{/images/head.svg}"/>作者信息</a>
             <a href="https://github.com/2016LMS/Lblog" target="_blank" class="m-item item m-mobile-hide"><img src="../static/images/github.svg" style="display:block;width: 20px" th:src="@{/images/github.svg}">源码</a>
             <div class="right item">
                 <div class="ui input">
                     <input type="text" placeholder="Search">
-                    <img src="../static/images/search2.svg" style="display:block;width: 25px" th:src="@{/images/search2.svg}"/>
                 </div>
             </div>
+            <img src="../static/images/search2.svg" style="display:block;width: 30px" th:src="@{/images/search2.svg}"/>
         </div>
     </div>
     <a href="#" class="ui menu toggle black button m-right-top m-mobile-show"><img src="../static/images/tealMenu.svg" style="display:block;width: 25px" th:src="@{/images/tealMenu.svg}"/></a>
